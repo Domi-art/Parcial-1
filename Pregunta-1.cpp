@@ -13,14 +13,34 @@
 #include<conio.h>
 using namespace std;
 
+
+void revelarmensaje(char* ptrmensaje, int* ptrdecodificador, int tamano){
+    int posicion = 0;
+
+    cout<<"el mensaje secreto e: ";
+
+    for(int i = 0; i < tamano; i++){
+        posicion += *(ptrdecodificador + i);
+        cout<<*(ptrmensaje + posicion);
+    }
+    
+    cout<<endl;
+}
+
 int main() {
 
-    char mensajeCifrado[] = {
+    char mensajecifrado[] = {
         ' ','A','E','I','O','U','a','e','i','o','u',
         'B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z',
         'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'
     };
+    
     int decodificador[] = { 2,17,-19,2,48,-44,35,-34,35,-42,2,44,1,-41,-6,2,4,40,5};
-    //Seguir desde aqui el codigo a implementar
+    
+   
+    int tamanodecodificador=sizeof(decodificador)/sizeof(decodificador[0]);
+
+    revelarmensaje(mensajecifrado, decodificador, tamanodecodificador);
+
 	return 0;
 }
